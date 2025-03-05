@@ -26,10 +26,8 @@ add_custom_target(
 )
 
 # Ajouter à l'exécutable
-add_executable(Tests
-        ${SOURCES}
-        test.cpp
-)
+file(GLOB TESTS_SRC CONFIGURE_DEPENDS "*.h" "*.cpp")
+add_executable(Tests ${TESTS_SRC})
 
 add_dependencies(Tests RegenerateOnSourceChange)
 
